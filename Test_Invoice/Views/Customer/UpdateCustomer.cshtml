@@ -1,0 +1,56 @@
+@model Test_Invoice.Common.Entities.Customer
+
+
+
+
+<div class="mb-3" id="">
+    <label  class="form-label">Actualizar cliente</label>
+    <div class="col-auto col-md-3">
+        <input type="text" class="form-control mb-3" placeholder="Nombre" id="update_cust_name"  value="@Model.CustName"/>
+        <input type="text" class="form-control mt-1" placeholder="Dirección" id="update_address"  value="@Model.Adress"/>
+        
+        
+
+        @if (Model.Status == true)
+        {
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="u_customer_active" value="1" checked="checked">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Activo
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="u_customer_active" value="0">
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Inactivo
+                </label>
+            </div>
+        }
+        else
+        {
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="u_customer_active" value="1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Activo
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="u_customer_active" value="0" checked="checked">
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Inactivo
+                </label>
+            </div>
+        }
+
+        @Html.DropDownListFor(model => model.CustomerType,
+          (IEnumerable<SelectListItem>)ViewBag.customerType,
+          "Seleccione el tipo de cliente",
+            new {@class = "form-control", @id = "customer_type_selected"})
+
+         @* <input type="text" class="form-control mt-3" id="add_customer_id"  value=""/> *@
+    </div>
+    
+    <button class="btn btn-secondary mt-2" id="update_customer_c">Actualizar cliente</button>
+</div>
+
+

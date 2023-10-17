@@ -1,0 +1,40 @@
+@model IEnumerable<Test_Invoice.Common.Entities.Customer>
+
+<button class="btn btn-primary mb-5 mt-2" id="on_customer_click_t" > Agregar cliente </button>
+<table id="list_customer" class="display table" >                                                                  
+    <thead>                                                              
+    <tr>                                                                 
+        <th class="bg-black text-white">Nombre</th> 
+        <th class="bg-black text-white">Dirección</th> 
+        <th class="bg-black text-white">Estado</th> 
+        <th class="bg-black text-white">Tipo de cliente</th> 
+        <th>Opciones</th>
+    </tr>                                                                
+    </thead>                                                             
+    <tbody>                                                              
+    @foreach (var item in  Model)                               
+    {                                                                    
+        <tr>                                                             
+            <td> @item.CustName</td>         
+            <td> @item.Adress</td>         
+            <td> @item.Status</td>         
+            <td>
+                @item.CustomerTypeId
+                @* @Model.First(x => x.CustomerType.Id == item.CustomerTypeId).CustomerType.Description *@
+            </td>         
+            <td>
+                <ul>
+                    <li class="btn btn-primary" style="background-color: white">
+                        @Html.ActionLink("Actualizar","UpdateCustomer", new {id = item.Id})
+                    </li>
+
+                    <li class="btn btn-warning" >
+                        @Html.ActionLink("Eliminar","", new {id = item.Id})
+                    </li>
+                </ul>
+            </td>
+        </tr>                                                            
+    }                                                                    
+    
+    </tbody>                                                             
+</table>            

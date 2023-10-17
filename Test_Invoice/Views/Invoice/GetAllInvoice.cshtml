@@ -1,0 +1,27 @@
+@model List<Test_Invoice.Common.Entities.Invoice>
+
+
+
+<button class="btn btn-primary" id="list_invoice"> Agregar factura</button>
+<table id="invoice_table">
+    <thead>
+    <tr>
+        <th>Cliente</th>
+        <th> Total itbis</th>
+        <th> sub - total</th>
+        <th> Total</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CustomerId  </td>
+                <td>@item.TotalItbis  </td>
+                <td>@item.SubTotal  </td>
+                <td>@item.Total  </td>
+            </tr>
+        }
+    </tbody>
+</table>
