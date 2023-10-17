@@ -4,15 +4,30 @@
 <div class="mb-3" id="">
     <label  class="form-label">Agregar factura</label>
     <div class="col-auto col-md-3">
+        <label> Seleccionar cliente</label>
         @Html.DropDownListFor(model => model.Customer, (IEnumerable<SelectListItem>) ViewBag.customers,"Seleccione el cliente", new { @class = "form-control", id = "IdCustomer"})
     </div>
     
     <div class="mt-5 col-md-auto col-md-3">
-        <input type="text" class="form-control mt-2" id="add_quantity_details" placeholder="Cantidad" value=""/>
-        <input type="text" class="form-control mt-2" id="add_price_details" placeholder="Precio" value=""/>
-        <input type="text" class="form-control mt-2" id="add_total_itbit_details" placeholder="Total Itbis" value=""/>
-        <input type="text" class="form-control mt-2" id="add_sub_total_details" placeholder="Subtotal" value=""/>
-        <input type="text" class="form-control mt-2" id="add_total_details" placeholder="Monto total" value=""/>
+        <div>
+                    <label> Cantidad</label>
+                    <input type="text" class="form-control mt-2" id="add_quantity_details" placeholder="Cantidad" value="" />
+        </div>
+       <div>
+            <label> Precio</label>
+            <input type="text" class="form-control mt-2" id="add_price_details" placeholder="Precio" value="" />
+       </div>
+<div>
+        <label>Total itbis</label>
+            <input type="text" class="form-control mt-2" id="add_total_itbit_details" placeholder="Total Itbis" value="" disabled />
+</div>
+      <div>
+          <label>Subtotal</label>
+            <input type="text" class="form-control mt-2" id="add_sub_total_details" placeholder="Subtotal" value="" disabled />
+      </div>
+<div>
+            <input type="text" class="form-control mt-2" id="add_total_details" placeholder="Monto total" value="" disabled />
+</div>
             <button class="btn btn-secondary mt-2" id="calculate_itbis">Calcular</button>
     </div>
     
